@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 
-const API = "http://localhost:8080/api/groceries";
+const API = "https://freshtrack-backend-rd1n.onrender.com/api/groceries";
 
 const CATEGORIES = [
   "Dairy",
