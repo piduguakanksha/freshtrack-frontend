@@ -1,0 +1,997 @@
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f5f8f3;
+  color: #203328;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+}
+
+button, input, select {
+  font: inherit;
+}
+
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 28px;
+}
+
+.topbar, .brand, .inventory-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topbar {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e1e9df;
+}
+
+.brand {
+  justify-content: flex-start;
+}
+
+.brand-icon {
+  font-size: 38px;
+}
+
+.brand h1, .brand p, .welcome h2, .welcome p {
+  margin: 0;
+}
+
+.brand h1 {
+  font-size: 25px;
+}
+
+.brand p, .muted {
+  color: #738176;
+  font-size: 14px;
+}
+
+.live-badge {
+  background: #e4f4e5;
+  color: #24743b;
+  padding: 9px 13px;
+  border-radius: 24px;
+  font-size: 13px;
+}
+
+.welcome {
+  padding: 36px 0 26px;
+}
+
+.eyebrow {
+  color: #39854b;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.welcome h2 {
+  margin: 10px 0;
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -1px;
+}
+
+.welcome > p:last-child {
+  color: #718075;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.stat-card, .panel {
+  background: white;
+  border: 1px solid #e7ede5;
+  border-radius: 16px;
+  padding: 22px;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.stat-card span {
+  color: #647468;
+  font-size: 14px;
+}
+
+.stat-card strong {
+  font-size: 34px;
+}
+
+.stat-card small {
+  color: #839086;
+}
+
+.warning-card strong {
+  color: #c08018;
+}
+
+.danger-card strong {
+  color: #c84f48;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.4fr);
+  gap: 22px;
+}
+
+.panel h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.panel > .muted {
+  margin: 8px 0 22px;
+}
+
+form, label {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  gap: 16px;
+}
+
+label {
+  gap: 7px;
+  color: #425347;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input, select {
+  width: 100%;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid #dce5da;
+  border-radius: 8px;
+  background: #fff;
+  color: #203328;
+  outline-color: #4d995c;
+}
+
+.two-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.primary-btn {
+  padding: 13px;
+  background: #287a3e;
+  color: white;
+  border: 0;
+  border-radius: 9px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.primary-btn:hover {
+  background: #1e6231;
+}
+
+.refresh-btn, .delete-btn {
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #dce5da;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.grocery-list {
+  margin-top: 22px;
+}
+
+.grocery-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 17px 0;
+  border-bottom: 1px solid #edf1eb;
+}
+
+.food-icon {
+  background: #edf6e9;
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 23px;
+}
+
+.food-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.food-info h4, .food-info p {
+  margin: 0 0 7px;
+}
+
+.food-info p {
+  color: #78847a;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.status-fresh {
+  background: #e3f4e6;
+  color: #287a3e;
+}
+
+.status-soon {
+  background: #fff1d8;
+  color: #98620b;
+}
+
+.status-expired {
+  background: #fde7e5;
+  color: #b63e37;
+}
+
+.delete-btn {
+  color: #b63e37;
+}
+
+.empty {
+  padding: 55px 12px;
+  text-align: center;
+  color: #78847a;
+}
+
+.empty span {
+  font-size: 42px;
+}
+
+.empty h4 {
+  color: #34483a;
+}
+
+.error {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fde7e5;
+  color: #a52f2f;
+}
+
+footer {
+  padding: 28px 0 10px;
+  text-align: center;
+  color: #829084;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .app {
+    padding: 16px;
+  }
+
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .live-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .two-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .grocery-item {
+    flex-wrap: wrap;
+  }
+}
+
+.status-today {
+  background: #ffe0b2;
+  color: #a64b00;
+}
+
+.status-no-date {
+  background: #eeeeee;
+  color: #555555;
+}
+
+
+/* Fresh groceries - Green */
+.status-fresh {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+/* Expiring soon - Yellow */
+.status-soon {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+/* Expiring today - Orange */
+.status-today {
+  background-color: #ffedd5;
+  color: #c2410c;
+  border: 1px solid #fdba74;
+}
+
+/* Expired groceries - Red */
+.status-expired {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+/* No expiry date - Grey */
+.status-no-date {
+  background-color: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+}
+
+.status-fresh,
+.status-soon,
+.status-today,
+.status-expired,
+.status-no-date {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Search and inventory filters */
+.filter-bar {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+  padding: 16px;
+  background: #f7faf7;
+  border: 1px solid #e1e9e1;
+  border-radius: 12px;
+}
+
+.filter-bar label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.filter-bar input,
+.filter-bar select {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #d5ded5;
+  border-radius: 8px;
+  background: white;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+  outline: 2px solid #80b985;
+  border-color: #368347;
+}
+
+.item-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.item-actions button {
+  cursor: pointer;
+}
+
+.filter-bar .muted {
+  margin: 0;
+}
+
+@media (max-width: 600px) {
+  .item-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+/* ===== FreshTrack colour theme ===== */
+
+:root {
+  --primary-green: #2e7d32;
+  --dark-green: #1b5e20;
+  --light-green: #e8f5e9;
+  --page-background: #f4f8f4;
+  --card-background: #ffffff;
+  --text-dark: #26352a;
+  --text-muted: #6b786d;
+  --border-color: #dce7dc;
+}
+
+/* Main page */
+body {
+  margin: 0;
+  background: var(--page-background);
+  color: var(--text-dark);
+}
+
+/* Header */
+.topbar {
+  background: var(--card-background);
+  border-bottom: 2px solid var(--light-green);
+}
+
+.brand-icon {
+  background: var(--light-green);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.brand h1 {
+  color: var(--dark-green);
+}
+
+.live-badge {
+  background: var(--light-green);
+  color: var(--dark-green);
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Welcome section */
+.welcome {
+  background: linear-gradient(135deg, #e8f5e9, #ffffff);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.welcome h2 {
+  color: var(--dark-green);
+}
+
+.eyebrow {
+  color: var(--primary-green);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Dashboard cards */
+.stat-card {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-top: 4px solid #66bb6a;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 3px 10px rgba(35, 75, 40, 0.06);
+}
+
+.stat-card strong {
+  display: block;
+  color: var(--dark-green);
+  font-size: 30px;
+  margin: 10px 0;
+}
+
+.stat-card span {
+  font-weight: 600;
+}
+
+.stat-card small {
+  color: var(--text-muted);
+}
+
+.warning-card {
+  border-top-color: #f9a825;
+}
+
+.danger-card {
+  border-top-color: #e53935;
+}
+
+/* Forms and inventory panels */
+.panel {
+  background: var(--card-background);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 3px 12px rgba(35, 75, 40, 0.05);
+}
+
+.panel h3 {
+  color: var(--dark-green);
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+input,
+select {
+  border: 1px solid #cbd8cb;
+  border-radius: 8px;
+  padding: 10px;
+  background: #ffffff;
+  color: var(--text-dark);
+}
+
+input:focus,
+select:focus {
+  outline: 2px solid #81c784;
+  border-color: var(--primary-green);
+}
+
+/* Buttons */
+.primary-btn {
+  background: var(--primary-green);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.primary-btn:hover {
+  background: var(--dark-green);
+}
+
+.refresh-btn {
+  background: #e8f5e9;
+  color: var(--dark-green);
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.refresh-btn:hover {
+  background: #c8e6c9;
+}
+
+.delete-btn {
+  background: #ffebee;
+  color: #c62828;
+  border: 1px solid #ef9a9a;
+  border-radius: 8px;
+  padding: 9px 12px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background: #ffcdd2;
+}
+
+/* Grocery inventory items */
+.grocery-item {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: box-shadow 0.2s;
+}
+
+.grocery-item:hover {
+  box-shadow: 0 4px 12px rgba(35, 75, 40, 0.1);
+}
+
+.food-icon {
+  background: var(--light-green);
+  border-radius: 12px;
+  padding: 10px;
+}
+
+/* Expiry status colours */
+.status-fresh {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.status-soon {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fcd34d;
+}
+
+.status-today {
+  background: #ffedd5;
+  color: #c2410c;
+  border: 1px solid #fdba74;
+}
+
+.status-expired {
+  background: #fee2e2;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+}
+
+.status-no-date {
+  background: #f3f4f6;
+  color: #4b5563;
+  border: 1px solid #d1d5db;
+}
+
+.status-fresh,
+.status-soon,
+.status-today,
+.status-expired,
+.status-no-date {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Search and filter area */
+.filter-bar {
+  background: #f7faf7;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 20px 0;
+}
+
+/* Empty state */
+.empty {
+  background: #f8fbf8;
+  border: 1px dashed #b7cdb7;
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+}
+
+.empty span {
+  font-size: 32px;
+}
+
+/* Error message */
+.error {
+  background: #ffebee;
+  color: #b71c1c;
+  border: 1px solid #ef9a9a;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+
+/* Footer */
+footer {
+  color: var(--text-muted);
+  text-align: center;
+  padding: 24px 12px;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .panel,
+  .welcome {
+    padding: 16px;
+  }
+
+  .topbar {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .stat-card {
+    padding: 14px;
+  }
+}
+
+/* ===== FreshTrack vibrant theme ===== */
+
+:root {
+  --primary-green: #00a86b;
+  --dark-green: #006b45;
+  --light-green: #d9fbe8;
+  --page-background: #f0f7ff;
+  --card-background: #ffffff;
+  --text-dark: #202b3c;
+  --text-muted: #64748b;
+  --border-color: #dbe5f1;
+}
+
+/* Page background */
+body {
+  background: linear-gradient(135deg, #effdf5, #eff6ff, #faf5ff);
+  color: var(--text-dark);
+}
+
+/* Header */
+.topbar {
+  background: #ffffff;
+  border-bottom: 3px solid #00c98d;
+  box-shadow: 0 4px 18px rgba(20, 90, 70, 0.08);
+}
+
+.brand-icon {
+  background: linear-gradient(135deg, #a7f3d0, #6ee7b7);
+  border-radius: 14px;
+}
+
+.brand h1 {
+  color: #00875a;
+}
+
+.live-badge {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+  border-radius: 25px;
+  padding: 8px 13px;
+}
+
+/* Welcome banner */
+.welcome {
+  background: linear-gradient(120deg, #bbf7d0, #99f6e4, #bfdbfe);
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(13, 148, 136, 0.12);
+}
+
+.welcome h2 {
+  color: #064e3b;
+}
+
+.eyebrow {
+  color: #047857;
+  font-weight: 800;
+}
+
+/* Dashboard cards */
+.stat-card {
+  background: #ffffff;
+  border: none;
+  border-top: 5px solid #10b981;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(30, 64, 100, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(30, 64, 100, 0.14);
+}
+
+.stat-card strong {
+  color: #059669;
+}
+
+.stat-card:nth-child(2) {
+  border-top-color: #f59e0b;
+}
+
+.stat-card:nth-child(2) strong {
+  color: #d97706;
+}
+
+.stat-card:nth-child(3) {
+  border-top-color: #8b5cf6;
+}
+
+.stat-card:nth-child(3) strong {
+  color: #7c3aed;
+}
+
+.danger-card {
+  border-top-color: #f43f5e;
+}
+
+.danger-card strong {
+  color: #e11d48;
+}
+
+/* Forms and panels */
+.panel {
+  background: #ffffff;
+  border: 1px solid #dbeafe;
+  border-radius: 18px;
+  box-shadow: 0 7px 24px rgba(30, 64, 100, 0.07);
+}
+
+.panel h3 {
+  color: #087f5b;
+}
+
+input,
+select {
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1e293b;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #0dba83;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.16);
+}
+
+/* Main button */
+.primary-btn {
+  background: linear-gradient(135deg, #00a86b, #0d9488);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0, 168, 107, 0.2);
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.primary-btn:hover {
+  filter: brightness(0.92);
+  transform: translateY(-1px);
+}
+
+/* Refresh and edit buttons */
+.refresh-btn {
+  background: #ede9fe;
+  color: #6d28d9;
+  border: 1px solid #c4b5fd;
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+.refresh-btn:hover {
+  background: #ddd6fe;
+}
+
+/* Delete button */
+.delete-btn {
+  background: #ffe4e6;
+  color: #be123c;
+  border: 1px solid #fda4af;
+  border-radius: 9px;
+  font-weight: 600;
+}
+
+.delete-btn:hover {
+  background: #fecdd3;
+}
+
+/* Grocery items */
+.grocery-item {
+  background: linear-gradient(110deg, #ffffff, #f8fbff);
+  border: 1px solid #dbeafe;
+  border-radius: 15px;
+  box-shadow: 0 3px 10px rgba(30, 64, 100, 0.04);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.grocery-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(30, 64, 100, 0.1);
+}
+
+.food-icon {
+  background: linear-gradient(135deg, #d1fae5, #ccfbf1);
+  border-radius: 14px;
+}
+
+/* Vibrant expiry badges */
+.status-fresh {
+  background: #bbf7d0;
+  color: #14532d;
+  border: 1px solid #4ade80;
+}
+
+.status-soon {
+  background: #fef08a;
+  color: #854d0e;
+  border: 1px solid #facc15;
+}
+
+.status-today {
+  background: #fed7aa;
+  color: #9a3412;
+  border: 1px solid #fb923c;
+}
+
+.status-expired {
+  background: #fecdd3;
+  color: #9f1239;
+  border: 1px solid #fb7185;
+}
+
+.status-no-date {
+  background: #e2e8f0;
+  color: #334155;
+  border: 1px solid #94a3b8;
+}
+
+.status-fresh,
+.status-soon,
+.status-today,
+.status-expired,
+.status-no-date {
+  display: inline-block;
+  padding: 6px 11px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Search and filter panel */
+.filter-bar {
+  background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+  border: 1px solid #c7e8d5;
+  border-radius: 14px;
+}
+
+/* Empty state */
+.empty {
+  background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+  border: 2px dashed #86cdb0;
+  border-radius: 15px;
+}
+
+/* Error message */
+.error {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fda4af;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  color: #64748b;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .welcome {
+    padding: 18px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .stat-card {
+    padding: 15px;
+  }
+}
+
